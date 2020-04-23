@@ -477,11 +477,10 @@ bool menu(int& choice, int& action, int& tree) {
 
 
 	cout << "1. Generuj liczby" << endl;
-	cout << "2. Wczytaj liczby z pliku" << endl;
-	cout << "3. Wczytaj liczby z klawiatury" << endl;
+	cout << "2. Wczytaj liczby z klawiatury" << endl;
 	choice = (_getch() - 48) * 10;
 	system("CLS");
-	if (choice > 30 || choice <= 0)
+	if (choice > 20 || choice <= 0)
 		return 1;
 
 	if (choice == 10) {
@@ -509,8 +508,7 @@ bool menu(int& choice, int& action, int& tree) {
 	cout << "4. Wyswietlanie in-order" << endl;
 	cout << "5. Wyswietlanie pre-order" << endl;
 	cout << "6. Usuniecie drzewa post-order" << endl;
-	cout << "7. Wypisanie poddrzewa pre-order" << endl;
-	cout << "8. Rownowazenie drzewa" << endl;
+	cout << "7. Rownowazenie drzewa" << endl;
 	action = _getch() - 48;
 	system("CLS");
 
@@ -535,10 +533,6 @@ int head() {
 		formArray(tab, genMin, genMax, choice % 10);
 	}
 	if (choice / 10 == 2) {
-		file.open("data.txt");
-		loadFile(tab);
-	}
-	if (choice / 10 == 3) {
 		keyboard(tab);
 	}
 
@@ -587,11 +581,6 @@ int head() {
 			delTreePostOrder(root);
 			break;
 		case 7:
-			cout << "Klucz poddrzewa: ";
-			cin >> x;
-			PreOrder(findTree(root, x));
-			break;
-		case 8:
 			root = balance(root);
 			PreOrder(root);
 			break;
