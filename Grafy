@@ -675,36 +675,36 @@ void Execute(int choice, Edge* edges, int v, int e, bool* visited) {
 		cout << "Czas sortowania:" << (double)(stop - start) / CLOCKS_PER_SEC << "s." << endl;
 		//printVec(answers, v);
 		break;
- case 5:
-	  matrix = generateMatrix(arr, v, e, visited);
-    //printMatrix(matrix, v);
-    list = new List[v];
-    inc = new ListI[v];
-    createListI(arr, e, v, inc);
-    createList(arr, e, v, list);
-    if (!isSpojny(inc, v) || !inEven(matrix,v)) {
-          cout << "Cykl Eulera nie istnieje." << endl;
-          _getch();
-          return;
-       }
-        cout << "Cykl Eulera istnieje." << endl;
-        EulerUndirected(matrix, e, visited, v);
-        printVec(answers);
-       } 
-    break;
+      case 5:
+	        matrix = generateMatrix(arr, v, e, visited);
+                //printMatrix(matrix, v);
+                list = new List[v];
+                inc = new ListI[v];
+                createListI(arr, e, v, inc);
+                createList(arr, e, v, list);
+                if (!isSpojny(inc, v) || !inEven(matrix,v)) {
+                   cout << "Cykl Eulera nie istnieje." << endl;
+                  _getch();
+                  return;
+                 }
+                 cout << "Cykl Eulera istnieje." << endl;
+                 EulerUndirected(matrix, e, visited, v);
+                 printVec(answers);
+                 } 
+                 break;
     case 6:
-    matrix = generateMatrix(arr, v, e, visited);
-    //printMatrix(matrix, v);
-    if (HcycleUndirected(matrix, 0, visited, v)) {
-          cout << "Cykl Hamiltona istnieje." << endl;
-          printVec(answers);
-       }
-    else {
-          cout << "Cykl Hamiltona nie istnieje." << endl;
-            }	
-  default:
+                matrix = generateMatrix(arr, v, e, visited);
+                //printMatrix(matrix, v);
+                if (HcycleUndirected(matrix, 0, visited, v)) {
+                   cout << "Cykl Hamiltona istnieje." << endl;
+                   printVec(answers);
+                }
+                else {
+                   cout << "Cykl Hamiltona nie istnieje." << endl;
+                }	
+                default:
 		break;
-	}
+	        }
 
 }
 //-------------------------------------------
