@@ -375,45 +375,6 @@ int isNumber(string thing) {
 	return 1;
 }
 
-int checkFile() {
-	string nr;
-	if (!file.good()) {
-		cout << "Brak pliku data.txt" << endl;
-		return 0;
-	}
-
-	for (int i = 0; true; i++) {
-		file >> nr;
-
-		if (file.eof()) {
-			return i;
-		}
-
-		if (!isNumber(nr)) {
-			return 0;
-		}
-	}
-}
-
-void loadFile(int tab[]) {
-	int fileSize = checkFile();
-	//cout<<fileSize<<endl;
-	if (fileSize) {
-		//fclose(file);
-		fstream f;
-		f.open("data.txt");
-		for (int i = 0; i < arraySize; i++) {
-			f >> tab[i];
-			//fscanf(f, "%d\n", &numbers[i]);
-		}
-		//fclose(f);
-	}
-	else {
-		error++;
-		cout << "dane nieprawidlowe" << endl;
-	}
-}
-
 void keyboard(int tab[]) {
 	for (int i = 0; i < arraySize; i++) {
 		string z;
