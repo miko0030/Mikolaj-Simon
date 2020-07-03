@@ -116,7 +116,7 @@ void clearAll(int** arr, int cnt, int idx) {
 		arr[i][idx] = 0;
 	}
 }
-vector<int> MatrixDEL(int** arr, int cnt, bool* visited) {
+vector<int> MatrixBFS(int** arr, int cnt, bool* visited) {
 	vector<int> answer;
 	int deleted = 0;
 	int index;
@@ -311,7 +311,7 @@ int checkIfOneExistsDFS(List* arr, int idx) {
 	return -1;
 }
 
-vector<int> listDel(List*& arr, int cnt) {
+vector<int> listBFS(List*& arr, int cnt) {
 	stack<int> stack;
 	vector<int> answer;
 	int deleted = 0;
@@ -633,7 +633,7 @@ void Execute(int choice, Edge* edges, int v, int e, bool* visited) {
 		stop = clock();
 
 		start = clock();
-		answers = MatrixDFS(arr, v, visited);
+		answers = MatrixBFS(arr, v, visited);
 		stop = clock();
 		cout << "Czas sortowania:" << (double)(stop - start) / CLOCKS_PER_SEC << "s." << endl;
 		//printVecDFS(answers, v);
@@ -644,7 +644,7 @@ void Execute(int choice, Edge* edges, int v, int e, bool* visited) {
 		arr = generateMatrix(edges, v, e, visited);
 		stop = clock();
 		start = clock();
-		answers = MatrixDEL(arr, v, visited);
+		answers = MatrixDFS(arr, v, visited);
 		stop = clock();
 		cout << "Czas sortowania:" << (double)(stop - start) / CLOCKS_PER_SEC << "s." << endl;
 		//printVec(answers, v);
@@ -657,10 +657,10 @@ void Execute(int choice, Edge* edges, int v, int e, bool* visited) {
 		stop = clock();
 
 		start = clock();
-		answers = listDFS(tab, v);
+		answers = listBFS(tab, v);
 		stop = clock();
 		cout << "Czas sortowania:" << (double)(stop - start) / CLOCKS_PER_SEC << "s." << endl;
-		//printVecDFS(answers, v);
+		//printVec(answers, v);
 		break;
 	case 4:
 		tab = new List[v];
@@ -670,10 +670,10 @@ void Execute(int choice, Edge* edges, int v, int e, bool* visited) {
 		stop = clock();
 
 		start = clock();
-		answers = listDel(tab, v);
+		answers = listDFS(tab, v);
 		stop = clock();
 		cout << "Czas sortowania:" << (double)(stop - start) / CLOCKS_PER_SEC << "s." << endl;
-		//printVec(answers, v);
+		//printVecDFS(answers, v);
 		break;
       case 5:
 	        matrix = generateMatrix(arr, v, e, visited);
